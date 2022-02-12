@@ -33,13 +33,25 @@ class _PrincipalState extends State<Principal> {
 //Si se coloca _ antes del nombre significa qeu es un metodo estatico
 Future<void> _mostrarAlerta(BuildContext context) {
   return showDialog(
+      barrierDismissible: false,
       context: context,
       builder: (context) {
         return AlertDialog(
           // Recupera el texto que el usuario ha digitado utilizando nuestro
           // TextEditingController
+
           title: Text("Como estan"),
           content: Text("Bien con flutter"),
+          actions: <Widget>[
+            FlatButton(
+                textColor: Colors.blueAccent,
+                onPressed: () => {Navigator.of(context).pop()},
+                child: Text("Aceptar")),
+            FlatButton(
+                textColor: Colors.redAccent,
+                onPressed: () => {Navigator.of(context).pop()},
+                child: Text("Cancelar")),
+          ],
         );
       });
 }
